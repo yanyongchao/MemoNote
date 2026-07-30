@@ -11,19 +11,42 @@ function TabIcon({ name, color }: { name: IoniconName; color: ColorValue }): JSX
 
 export default function TabsLayout(): JSX.Element {
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "#111827",
+        tabBarInactiveTintColor: "#9ca3af",
+        tabBarStyle: {
+          borderTopColor: "#e5e7eb",
+          height: 84,
+          paddingBottom: 24,
+          paddingTop: 10,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: "600",
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "首页",
           tabBarIcon: ({ color }) => <TabIcon name="home-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="favorites"
         options={{
-          title: "Explore",
-          tabBarIcon: ({ color }) => <TabIcon name="compass-outline" color={color} />,
+          title: "收藏",
+          tabBarIcon: ({ color }) => <TabIcon name="star-outline" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "我的",
+          tabBarIcon: ({ color }) => <TabIcon name="person-circle-outline" color={color} />,
         }}
       />
     </Tabs>
