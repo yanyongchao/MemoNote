@@ -68,7 +68,7 @@ export default function HomeTab(): JSX.Element {
     <View className="flex-1 bg-background">
       <ScrollView
         className="flex-1"
-        contentContainerClassName="gap-6 px-5 pb-28 pt-8"
+        contentContainerClassName="gap-6 px-5 pb-28 pt-16"
         refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={refreshNotes} />}
       >
         <View className="flex-row items-center justify-between">

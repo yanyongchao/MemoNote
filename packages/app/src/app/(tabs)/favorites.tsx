@@ -34,7 +34,7 @@ export default function FavoritesTab(): JSX.Element {
 
   return (
     <View className="flex-1 bg-background">
-      <ScrollView className="flex-1" contentContainerClassName="gap-6 px-5 pb-28 pt-8">
+      <ScrollView className="flex-1" contentContainerClassName="gap-6 px-5 pb-28 pt-16">
         <View className="gap-2">
           <Typography.Heading type="h1">收藏</Typography.Heading>
           <Typography.Paragraph color="muted">

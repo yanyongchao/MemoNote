@@ -27,7 +27,7 @@ export default function ProfileTab(): JSX.Element {
   }
 
   return (
-    <View className="flex-1 bg-background px-5 py-8">
+    <View className="flex-1 bg-background px-5 pt-16">
       <View className="flex-1 gap-6">
         <View className="gap-2">
           <Typography.Heading type="h1">我的</Typography.Heading>

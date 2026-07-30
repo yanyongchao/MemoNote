@@ -31,13 +31,13 @@ export default function EditNoteScreen(): JSX.Element {
       return;
     }
 
-    setIsSaving(true);
-    try {
-      await updateNote(noteId, { title: title.trim(), content: content.trim() });
-      router.replace(`/notes/${noteId}`);
-    } finally {
-      setIsSaving(false);
-    }
+      setIsSaving(true);
+      try {
+        await updateNote(noteId, { title: title.trim(), content: content.trim() });
+        router.back();
+      } finally {
+        setIsSaving(false);
+      }
   }
 
   if (isLoading) {
@@ -53,7 +53,7 @@ export default function EditNoteScreen(): JSX.Element {
       className="flex-1 bg-background"
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      <View className="flex-row items-center justify-between px-5 pb-4 pt-8">
+      <View className="flex-row items-center justify-between px-5 pb-4 pt-16">
         <Pressable className="h-10 w-10 justify-center" onPress={() => router.back()}>
           <Ionicons name="chevron-back" size={25} color="#111827" />
         </Pressable>

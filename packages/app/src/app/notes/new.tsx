@@ -19,13 +19,13 @@ export default function NewNoteScreen(): JSX.Element {
       return;
     }
 
-    setIsSaving(true);
-    try {
-      const note = await createNote({ title: title.trim(), content: content.trim() });
-      router.replace(`/notes/${note.id}`);
-    } finally {
-      setIsSaving(false);
-    }
+      setIsSaving(true);
+      try {
+        await createNote({ title: title.trim(), content: content.trim() });
+        router.back();
+      } finally {
+        setIsSaving(false);
+      }
   }
 
   return (
@@ -33,7 +33,7 @@ export default function NewNoteScreen(): JSX.Element {
       className="flex-1 bg-background"
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      <View className="flex-row items-center justify-between px-5 pb-4 pt-8">
+      <View className="flex-row items-center justify-between px-5 pb-4 pt-16">
         <Pressable onPress={() => router.back()}>
           <Typography.Paragraph color="muted">取消</Typography.Paragraph>
         </Pressable>

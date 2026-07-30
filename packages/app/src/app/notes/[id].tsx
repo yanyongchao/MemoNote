@@ -59,12 +59,12 @@ export default function NoteDetailScreen(): JSX.Element {
 
   return (
     <View className="flex-1 bg-background">
-      <View className="flex-row items-center justify-between px-5 pb-4 pt-8">
+      <View className="flex-row items-center justify-between px-5 pb-4 pt-16">
         <Pressable className="h-10 w-10 justify-center" onPress={() => router.back()}>
           <Ionicons name="chevron-back" size={25} color="#111827" />
         </Pressable>
         <View className="flex-row gap-5">
-          <Pressable onPress={() => router.push(`/notes/${note.id}/edit`)}>
+          <Pressable onPress={() => router.replace(`/notes/${note.id}/edit`)}>
             <Ionicons name="create-outline" size={23} color="#111827" />
           </Pressable>
           <Pressable onPress={confirmDelete}>
