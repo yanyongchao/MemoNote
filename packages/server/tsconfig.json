@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "NodeNext",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"moduleResolution": "NodeNext",
+		"rootDir": "./src",
+		"outDir": "dist",
+		"importsNotUsedAsValues": "remove",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"types": ["vitest/globals", "node"]
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}

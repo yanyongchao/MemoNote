@@ -1,0 +1,25 @@
+{
+	"name": "MemoNote",
+	"private": true,
+	"version": "1.0.0",
+	"packageManager": "pnpm@10.8.1",
+	"scripts": {
+		"dev:server": "pnpm --filter server start:dev",
+		"build:server": "pnpm --filter server build",
+		"start:server": "pnpm --filter server start:prod",
+		"check:server": "pnpm --filter server check",
+		"test:server": "pnpm --filter server test",
+		"db:generate": "pnpm --filter server db:generate",
+		"db:migrate": "pnpm --filter server db:migrate",
+		"db:deploy": "pnpm --filter server db:deploy",
+		"db:push": "pnpm --filter server db:push",
+		"db:seed": "pnpm --filter server db:seed",
+		"db:studio": "pnpm --filter server db:studio",
+		"db:generate:server": "pnpm --filter server db:generate",
+		"db:migrate:server": "pnpm --filter server db:migrate",
+		"db:deploy:server": "pnpm --filter server db:deploy",
+		"db:push:server": "pnpm --filter server db:push",
+		"db:seed:server": "pnpm --filter server db:seed",
+		"db:studio:server": "pnpm --filter server db:studio"
+	}
+}
