@@ -24,12 +24,10 @@ async function main() {
 			where: { email: user.email },
 			update: {
 				name: user.name,
-				age: user.age,
 			},
 			create: {
 				name: user.name,
 				email: user.email,
-				age: user.age,
 			},
 		});
 	}

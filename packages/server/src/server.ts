@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { type Express } from "express";
 import helmet from "helmet";
 import { pino } from "pino";
+import { authRouter } from "@/api/auth/authRouter";
 import { healthCheckRouter } from "@/api/healthCheck/healthCheckRouter";
 import { userRouter } from "@/api/user/userRouter";
 import { openAPIRouter } from "@/api-docs/openAPIRouter";
@@ -27,6 +28,7 @@ app.use(rateLimiter);
 app.use(requestLogger);
 
 // Routes
+app.use("/auth", authRouter);
 app.use("/health-check", healthCheckRouter);
 app.use("/users", userRouter);
 

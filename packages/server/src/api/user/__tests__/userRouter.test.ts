@@ -10,7 +10,6 @@ const { mockUsers } = vi.hoisted(() => ({
 			id: 1,
 			name: "Alice",
 			email: "alice@example.com",
-			age: 42,
 			createdAt: new Date("2026-07-30T00:00:00.000Z"),
 			updatedAt: new Date("2026-08-04T00:00:00.000Z"),
 		},
@@ -18,7 +17,6 @@ const { mockUsers } = vi.hoisted(() => ({
 			id: 2,
 			name: "Robert",
 			email: "robert@example.com",
-			age: 21,
 			createdAt: new Date("2026-07-30T00:00:00.000Z"),
 			updatedAt: new Date("2026-08-04T00:00:00.000Z"),
 		},
@@ -131,7 +129,6 @@ function compareUsers(mockUser: User, responseUser: User) {
 	expect(responseUser.id).toEqual(mockUser.id);
 	expect(responseUser.name).toEqual(mockUser.name);
 	expect(responseUser.email).toEqual(mockUser.email);
-	expect(responseUser.age).toEqual(mockUser.age);
 	expect(new Date(responseUser.createdAt)).toEqual(mockUser.createdAt);
 	expect(new Date(responseUser.updatedAt)).toEqual(mockUser.updatedAt);
 }

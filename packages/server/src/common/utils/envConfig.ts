@@ -20,6 +20,16 @@ const envSchema = z.object({
 
 	DATABASE_URL: z.string().url(),
 
+	DATABASE_TIMEZONE: z.string().default("+08:00"),
+
+	USER_AUTH_TOKEN_SECRET: z.string().min(1).default("development-user-auth-token-secret"),
+
+	USER_AUTH_TOKEN_EXPIRES_IN_SECONDS: z.coerce
+		.number()
+		.int()
+		.positive()
+		.default(60 * 60 * 24 * 7),
+
 	COMMON_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(1000),
 
 	COMMON_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(1000),
