@@ -37,7 +37,7 @@ MemoNote 是一个轻量级个人备忘录应用，支持登录、注册、创�
 - Node.js 24+
 - pnpm 10+
 - MySQL
-- iOS Simulator / Android Emulator / Expo Go
+- iOS Simulator / Android Emulator
 
 ## 安装依赖
 
@@ -155,7 +155,7 @@ pnpm ios
 pnpm android
 ```
 
-`expo start --ios` 会启动 Metro 并在 iOS Simulator 中打开 Expo Go 或开发客户端。它不会编译原生 iOS 代码；需要编译原生代码时使用 `pnpm ios` / `expo run:ios`。
+`expo start --ios` 会启动 Metro 并在 iOS Simulator 中打开。它不会编译原生 iOS 代码；需要编译原生代码时使用 `pnpm ios` / `expo run:ios`。
 
 ## 常用命令
 
