@@ -7,23 +7,20 @@ import { storage } from './storage';
 
 /** 后端统一响应格式 */
 export interface ApiResponse<T = unknown> {
-  code: number;
+  statusCode: number;
   message: string;
-  data: T;
+  data?: T;
   success: boolean;
-  timestamp: number;
 }
 
 /** 业务错误（code !== 200） */
 export class ApiError extends Error {
-  code: number;
-  timestamp: number;
+  statusCode: number;
 
   constructor(response: ApiResponse) {
     super(response.message);
     this.name = 'ApiError';
-    this.code = response.code;
-    this.timestamp = response.timestamp;
+    this.statusCode = response.statusCode;
   }
 }
 
@@ -94,7 +91,7 @@ instance.interceptors.response.use(
       return { data: body.data, headers: response.headers } as any;
     }
 
-    return body.data as any;
+    return (body.data) as any;
   },
   (error: AxiosError<ApiResponse>) => {
     if (error.config) removePending(error.config);
@@ -112,7 +109,7 @@ instance.interceptors.response.use(
     }
 
     // 服务端返回了业务格式的错误
-    if (error.response?.data?.code) {
+    if (error.response?.data?.statusCode) {
       const apiError = new ApiError(error.response.data);
       showError(apiError.message);
       return Promise.reject(apiError);

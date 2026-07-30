@@ -1,1 +1,1 @@
-export const TOKEN_KEY = 'qosmospay_token';
+export const TOKEN_KEY = "memonote_token";
