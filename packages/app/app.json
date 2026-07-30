@@ -1,45 +1,35 @@
 {
   "expo": {
-    "name": "memonote",
-    "slug": "memonote-app",
+    "name": "my-heroui-native-app",
+    "slug": "my-heroui-native-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "memonote",
+    "scheme": "heroui-native-app",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.jws.memonote",
-      "infoPlist": {
-        "NSAppTransportSecurity": {
-          "NSAllowsArbitraryLoads": true
-        }
-      }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yanyongchao.my-heroui-native-app"
     },
     "android": {
-      "package": "com.jws.memonote",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
       },
       "predictiveBackGestureEnabled": false
     },
-    "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
     "plugins": [
       "expo-router",
+      "expo-font",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true,
