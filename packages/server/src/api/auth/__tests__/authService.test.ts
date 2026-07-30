@@ -42,10 +42,10 @@ describe("authService", () => {
 
 			expect(result.statusCode).toEqual(StatusCodes.CREATED);
 			expect(result.success).toBeTruthy();
-			expect(result.responseObject?.user.email).toEqual("alice@example.com");
-			expect(result.responseObject?.user.name).toEqual("Alice");
-			expect(result.responseObject?.token.split(".")).toHaveLength(3);
-			await expectValidToken(result.responseObject?.token as string, "1", "alice@example.com");
+			expect(result.data?.user.email).toEqual("alice@example.com");
+			expect(result.data?.user.name).toEqual("Alice");
+			expect(result.data?.token.split(".")).toHaveLength(3);
+			await expectValidToken(result.data?.token as string, "1", "alice@example.com");
 			expect(authRepositoryInstance.createUserAsync).toHaveBeenCalledWith(
 				expect.objectContaining({ email: "alice@example.com", name: "Alice" }),
 			);
@@ -84,9 +84,9 @@ describe("authService", () => {
 			expect(result.statusCode).toEqual(StatusCodes.OK);
 			expect(result.success).toBeTruthy();
 			expect(result.message).toEqual("Login successful");
-			expect(result.responseObject?.user.email).toEqual("alice@example.com");
-			expect(result.responseObject?.token.split(".")).toHaveLength(3);
-			await expectValidToken(result.responseObject?.token as string, "1", "alice@example.com");
+			expect(result.data?.user.email).toEqual("alice@example.com");
+			expect(result.data?.token.split(".")).toHaveLength(3);
+			await expectValidToken(result.data?.token as string, "1", "alice@example.com");
 		});
 
 		it("returns unauthorized for invalid password", async () => {
@@ -103,7 +103,7 @@ describe("authService", () => {
 			expect(result.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
 			expect(result.success).toBeFalsy();
 			expect(result.message).toEqual("Invalid email or password");
-			expect(result.responseObject).toBeNull();
+			expect(result.data).toBeNull();
 		});
 	});
 });

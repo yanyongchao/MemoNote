@@ -19,13 +19,13 @@ vi.mock("@/api/auth/authService", () => ({
 		register: vi.fn(async () => ({
 			success: true,
 			message: "Registration successful",
-			responseObject: authResponse,
+			data: authResponse,
 			statusCode: StatusCodes.CREATED,
 		})),
 		login: vi.fn(async () => ({
 			success: true,
 			message: "Login successful",
-			responseObject: authResponse,
+			data: authResponse,
 			statusCode: StatusCodes.OK,
 		})),
 	},
@@ -44,8 +44,8 @@ describe("Auth API Endpoints", () => {
 
 			expect(response.statusCode).toEqual(StatusCodes.CREATED);
 			expect(response.body.success).toBeTruthy();
-			expect(response.body.responseObject.user.email).toEqual("alice@example.com");
-			expect(response.body.responseObject.token).toEqual("header.payload.signature");
+			expect(response.body.data.user.email).toEqual("alice@example.com");
+			expect(response.body.data.token).toEqual("header.payload.signature");
 		});
 
 		it("validates register input", async () => {
@@ -69,8 +69,8 @@ describe("Auth API Endpoints", () => {
 
 			expect(response.statusCode).toEqual(StatusCodes.OK);
 			expect(response.body.success).toBeTruthy();
-			expect(response.body.responseObject.user.email).toEqual("alice@example.com");
-			expect(response.body.responseObject.token).toEqual("header.payload.signature");
+			expect(response.body.data.user.email).toEqual("alice@example.com");
+			expect(response.body.data.token).toEqual("header.payload.signature");
 		});
 
 		it("validates login input", async () => {
