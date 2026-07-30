@@ -4,7 +4,7 @@ MemoNote 是一个轻量级个人备忘录应用，支持登录、注册、创�
 
 项目采用 pnpm workspace 管理：
 
-- `packages/server`: Express + Prisma + MariaDB 后端服务
+- `packages/server`: Express + Prisma + MySQL 后端服务
 - `packages/app`: Expo + Expo Router + HeroUI Native 移动端应用
 - `docs`: PRD 和页面参考图
 
@@ -15,7 +15,7 @@ MemoNote 是一个轻量级个人备忘录应用，支持登录、注册、创�
 - Node.js
 - Express 5
 - Prisma 7
-- MariaDB / MySQL
+- MySQL
 - Zod
 - jose JWT
 - Vitest + Supertest
@@ -36,7 +36,7 @@ MemoNote 是一个轻量级个人备忘录应用，支持登录、注册、创�
 
 - Node.js 24+
 - pnpm 10+
-- MariaDB 或 MySQL
+- MySQL
 - iOS Simulator / Android Emulator / Expo Go
 
 ## 安装依赖
@@ -65,7 +65,7 @@ USER_AUTH_TOKEN_SECRET="development-user-auth-secret"
 USER_AUTH_TOKEN_EXPIRES_IN_SECONDS=2592000
 ```
 
-`DATABASE_URL` 使用 MariaDB/MySQL 时建议带 `timezone=%2B08:00`，避免数据库未加载 IANA timezone 时出现 `ER_WRONG_IANA_TIMEZONE`。
+`DATABASE_URL` 建议带 `timezone=%2B08:00`，避免数据库时区配置差异导致连接失败。
 
 ### App
 
@@ -258,9 +258,9 @@ pnpm lint
 
 ## 常见问题
 
-### `pnpm db:seed` 报 `ER_WRONG_IANA_TIMEZONE`
+### `pnpm db:seed` 报 timezone 错误
 
-MariaDB 未加载 IANA timezone 时，连接参数里不要使用 `timezone=Asia/Shanghai`，可以改为：
+连接参数里不要使用 `timezone=Asia/Shanghai`，可以改为固定偏移量：
 
 ```bash
 DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/memonote?timezone=%2B08:00"
