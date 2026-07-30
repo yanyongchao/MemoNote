@@ -18,6 +18,8 @@ export default function RootLayout(): JSX.Element {
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(auth)" />
             <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="notes" />
+            <Stack.Screen name="search" />
           </Stack>
           <StatusBar style="auto" />
         </HeroUINativeProvider>

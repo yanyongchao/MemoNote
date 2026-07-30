@@ -1,16 +1,25 @@
-import { router } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import { Button, Card, Typography } from "heroui-native";
 import type { JSX } from "react";
-import { View } from "react-native";
+import { useCallback, useState } from "react";
+import { Pressable, View } from "react-native";
 
+import { getNoteStats, type NoteStats } from "@/api/notes";
 import { useAuthStore } from "@/stores/auth-store";
 
 export default function ProfileTab(): JSX.Element {
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const [stats, setStats] = useState<NoteStats>({ notes: 0, favorites: 0 });
 
   const displayName = user?.name || "未命名用户";
   const initial = displayName.slice(0, 1).toUpperCase();
+
+  useFocusEffect(
+    useCallback(() => {
+      void getNoteStats().then(setStats);
+    }, []),
+  );
 
   function handleLogout() {
     logout();
@@ -45,27 +54,32 @@ export default function ProfileTab(): JSX.Element {
 
         <View className="flex-row gap-3">
           <Card className="flex-1 gap-1 p-4">
-            <Typography.Heading type="h3">0</Typography.Heading>
+            <Typography.Heading type="h3">{stats.notes}</Typography.Heading>
             <Typography.Paragraph color="muted">笔记</Typography.Paragraph>
           </Card>
           <Card className="flex-1 gap-1 p-4">
-            <Typography.Heading type="h3">0</Typography.Heading>
+            <Typography.Heading type="h3">{stats.favorites}</Typography.Heading>
             <Typography.Paragraph color="muted">收藏</Typography.Paragraph>
           </Card>
         </View>
 
         <Card className="gap-4 p-6">
-          <View className="gap-1">
-            <Typography.Heading type="h3">账号</Typography.Heading>
-            <Typography.Paragraph color="muted">
-              退出后需要重新登录才能同步和管理备忘录。
-            </Typography.Paragraph>
-          </View>
+          <ProfileRow label="清除本地缓存" value="0 KB" />
+          <ProfileRow label="关于我们" value="v1.0.0" />
           <Button className="w-full" variant="secondary" onPress={handleLogout}>
             退出登录
           </Button>
         </Card>
       </View>
     </View>
+  );
+}
+
+function ProfileRow({ label, value }: { label: string; value: string }): JSX.Element {
+  return (
+    <Pressable className="flex-row items-center justify-between py-2">
+      <Typography.Paragraph>{label}</Typography.Paragraph>
+      <Typography.Paragraph color="muted">{value}</Typography.Paragraph>
+    </Pressable>
   );
 }
