@@ -1,0 +1,36 @@
+{
+  "cli": {
+    "version": ">= 18.4.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "environment": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "http://192.168.0.100:8080/",
+        "EXPO_PUBLIC_ENV": "development"
+      }
+    },
+    "preview": {
+      "environment": "preview",
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "http://192.168.0.100:8080/",
+        "EXPO_PUBLIC_ENV": "preview"
+      }
+    },
+    "production": {
+      "environment": "production",
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "http://192.168.0.100:8080/",
+        "EXPO_PUBLIC_ENV": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

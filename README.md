@@ -58,7 +58,7 @@ pnpm install
 ```bash
 NODE_ENV=development
 PORT=8080
-HOST=localhost
+HOST=0.0.0.0
 DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/memonote?timezone=%2B08:00"
 CORS_ORIGIN="http://localhost:8080"
 USER_AUTH_TOKEN_SECRET="development-user-auth-secret"
@@ -124,6 +124,7 @@ pnpm dev:server
 
 ```text
 http://localhost:8080
+http://<你的电脑局域网 IP>:8080
 ```
 
 Swagger 文档：
@@ -273,6 +274,7 @@ DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/memonote?timezone=%2B08:00"
 - server 是否已重启并加载最新 `/notes` 路由
 - `EXPO_PUBLIC_API_URL` 是否指向后端，例如 `http://localhost:8080/`
 - 真机运行时不要使用 `localhost`，改为电脑局域网 IP
+- server 的 `HOST` 是否为 `0.0.0.0`，否则局域网设备可能访问不到
 - 是否已经登录，`/notes` 需要 Bearer token
 
 ### Expo 修改 `.env` 后不生效

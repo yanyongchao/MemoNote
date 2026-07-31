@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-heroui-native-app",
-    "slug": "my-heroui-native-app",
+    "name": "memonote-app",
+    "slug": "memonote-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,14 +9,15 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yanyongchao.my-heroui-native-app"
+      "bundleIdentifier": "com.yanyongchao.memonote-app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.yanyongchao.memonoteapp"
     },
     "plugins": [
       "expo-router",
@@ -29,11 +30,25 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-status-bar"
+      "expo-status-bar",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0e7a8c2c-278f-41ff-9523-4a18c090423d"
+      }
     }
   }
 }
