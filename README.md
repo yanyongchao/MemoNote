@@ -1,9 +1,7 @@
-<p>
-  <video src="./1.mp4" controls width="90%"></video>
-</p>
-<p>
-  <video src="./2.mp4" controls width="45%"></video>
-</p>
+## Demo
+
+- [演示视频 1](./1.mp4)
+- [演示视频 2](./2.mp4)
 
 # MemoNote
 
