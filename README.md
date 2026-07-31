@@ -1,3 +1,10 @@
+<p>
+  <video src="./1.mp4" controls width="90%"></video>
+</p>
+<p>
+  <video src="./2.mp4" controls width="45%"></video>
+</p>
+
 # MemoNote
 
 MemoNote 是一个轻量级个人备忘录应用，支持登录、注册、创建笔记、编辑笔记、搜索、收藏、置顶和个人中心统计。
